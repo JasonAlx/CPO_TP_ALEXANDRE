@@ -10,8 +10,20 @@ package com.mycompany.tp2_convertisseurobjet_alexandre;
  * @author jason
  */
 public class TP2_convertisseurObjet_ALEXANDRE {
-
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        
+        
+        double resultat = 0;
+        Convertisseur C1 = new Convertisseur();
+        while(resultat != resultat-300){
+            resultat = C1.convert();
+            System.out.println(C1.toString());
+            System.out.println("Le résultat de la conversion est " + resultat + "\n");
+
+           
+
+        
+
+        }
     }
 }
