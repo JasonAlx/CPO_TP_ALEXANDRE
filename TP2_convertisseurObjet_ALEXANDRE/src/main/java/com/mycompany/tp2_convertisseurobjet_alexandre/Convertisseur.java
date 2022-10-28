@@ -80,7 +80,7 @@ public class Convertisseur {
     }
 
     // on utilise dans le programme de convertion les programmes précédents
-    //on demande de choisir un type de convertion ensuite de donner sa valeur à convertir puis on fait vérifier et enfin on execute la convertion
+    //on demande de choisir un type de convertion ensuite de donner sa valeur à convertir et on affiche la valeurs et le mode choisit
     public double convert(){
         byte mode = selectmode();
         Scanner sc = new Scanner(System.in);
