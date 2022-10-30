@@ -9,5 +9,9 @@ package com.mycompany.tp2_manip_alexandre;
  * @author jason
  */
 public class Moussaka {
-    
+
+    int nbCalories;
+
+    public Moussaka(int nbcalories) {
+    }
 }

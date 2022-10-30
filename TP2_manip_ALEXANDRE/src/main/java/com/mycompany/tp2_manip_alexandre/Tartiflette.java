@@ -9,5 +9,11 @@ package com.mycompany.tp2_manip_alexandre;
  * @author jason
  */
 public class Tartiflette {
+
+    int nbCalories;
+    public Tartiflette(int nbcalories) {    
+    //constructeur de la classe Tartiflette
+
     
+    } 
 }
