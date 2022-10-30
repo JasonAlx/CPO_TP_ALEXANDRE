@@ -13,12 +13,14 @@ public class Voiture {
     String Marque;
     int PuissanceCV;
     Personne proprietaire;
-    
+    // on définit les différentes variables et on les associes à la classe voiture
     public Voiture (String modele ,String marque , int puissanceCV) {
         Modele=modele;
         Marque=marque;
         PuissanceCV=puissanceCV;
-       
+        proprietaire = null;
+
+        
          
     }
     
