@@ -11,7 +11,8 @@ package com.mycompany.tp2_manip_alexandre;
 public class Tartiflette {
 
     int nbCalories;
-    public Tartiflette(int nbcalories) {    
+    public Tartiflette(int nbcalories) {
+        nbCalories = nbcalories;
     //constructeur de la classe Tartiflette
 
     
