@@ -27,4 +27,13 @@ public class Magicien extends personnage{
     public String toString(){
         return "Magicien{nom = "+ nom +", niveau de vie = "+vie +", confirmé="+confirmé+"}";
     }
+    public void Armeprediction(){
+        int a=0;
+        for (int i=0;i<tablo.size();i++){
+            if(tablo.get(i)intanceof baton){
+                a+=1;
+            }        
+        }
+            System.out.println("Le magicien a "+a+"arme(s) de prédilection(s)");
+    }
 }
