@@ -8,8 +8,8 @@ package lights_off_alexandre;
  *
  * @author jason
  */
-public class CelluleLumineuse {
-    boolean etreallume=false;
+public class Cellule {
+   boolean etreallume=false;
     //initalisation de la cellule en éteint
     
     /**
@@ -27,14 +27,17 @@ public class CelluleLumineuse {
     /**
      *change l'etat de la cellule
      */
-    public void changeetat(){
+    public boolean changeetat(){
         if (etreallume==true){
             etreallume=false;
         }else{
             etreallume=true;
-        }  
+        }
+    return true;  
     }
     
     
     
 }
+ 
+
