@@ -9,11 +9,14 @@ package lights_off_alexandre;
  * @author jason
  */
 public class Grille {
-    int Ligne=5;
-    int Colonne=5;
+    int Ligne=4;
+    int Colonne=4;
     Cellule [][] cellules = new Cellule [Ligne][Colonne];
 //création de la grille de 5*5
     
+    /**
+     *on met les cellules dans la grille
+     */
     public Grille(){
         for (int i=0;i<Ligne;i++){
             for (int j=0;j<Colonne;j++){
@@ -21,6 +24,12 @@ public class Grille {
             }
         }
     }
+
+    /**
+     *permet de changer l'etat des cellules voisines en faisant attention à ne pas sortir de la grille 
+     * @param i
+     * @param j
+     */
     public void changevoisin (int i,int j){
         if (cellules[i][j].changeetat()==true){
             if (i>0){
@@ -33,6 +42,22 @@ public class Grille {
                 cellules[i][j+1].changeetat();
         }
     }
-}
+    public boolean partiegagnee(){
+        int compteur=0;
+        for (int i=0;i<Ligne;i++){
+            for (int j=0;j<Colonne;j++){
+                if (cellules[i][j].celluleallume()==false){
+                    compteur=compteur+1;
+                    if (compteur==25){
+                        return true;
+                }else{
+                    return false;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+}    
 
 

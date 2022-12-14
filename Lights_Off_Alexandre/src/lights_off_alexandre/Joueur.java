@@ -9,5 +9,10 @@ package lights_off_alexandre;
  * @author jason
  */
 public class Joueur {
-    
+    int coup=0;
+    /*public void click(Cellule cellules,int i,int j){
+        if (cellules[i][j].changeetat()==true){
+            coup=coup+1;
+    }*/
 }
+
