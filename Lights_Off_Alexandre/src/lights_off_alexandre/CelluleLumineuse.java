@@ -9,5 +9,32 @@ package lights_off_alexandre;
  * @author jason
  */
 public class CelluleLumineuse {
+    boolean etreallume=false;
+    //initalisation de la cellule en éteint
+    
+    /**
+     *permet de conaitre l'etat d'une cellule
+     * @return
+     */
+    public boolean celluleallume() {
+        if (etreallume==true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    /**
+     *change l'etat de la cellule
+     */
+    public void changeetat(){
+        if (etreallume==true){
+            etreallume=false;
+        }else{
+            etreallume=true;
+        }  
+    }
+    
+    
     
 }
