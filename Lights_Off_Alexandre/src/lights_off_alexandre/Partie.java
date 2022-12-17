@@ -10,12 +10,12 @@ import java.util.Scanner;
  * @author jason
  */
 public class Partie {
-    Grille GrilleJeu;
+    Grille GrilleJeu = new Grille();
     
     public void initialiserpartie(Cellule cellules[][]){
         int Ligne = 4;
         int Colonne = 4;
-        GrilleJeu = new Grille();
+        
       Random generateurAleat = new Random();
       int x, y;
       for (int i=0;i<4;i++){
@@ -24,9 +24,9 @@ public class Partie {
           cellules[x][y].changeetat();
       }
     }
-    public void debuterpartie(Partie partie){
+    /*public void debuterpartie(Partie partie){
         partie.initialiserpartie();
-    }
+    }*/
     public int clickcoord (String qst){
         Scanner sc = new Scanner(System.in);
         System.out.println(qst);

@@ -9,12 +9,19 @@ package lights_off_alexandre;
  * @author jason
  */
 public class fenetredejeu extends javax.swing.JFrame {
-
+    Grille GrilleJeu=new Grille() ;
     /**
      * Creates new form fenetredejeu
      */
     public fenetredejeu() {
         initComponents();
+        
+        for (i=0;i>4;i++){
+            for (j=0;j>4;j++){
+                Cellulegraph cellgraph =new Cellulegraph();
+                Panelgrille.add(cellgraph);
+                
+            }
     }
 
     /**
@@ -26,21 +33,36 @@ public class fenetredejeu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Panelgrille = new javax.swing.JPanel();
+        Panelinfojeu = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        Panelgrille.setBackground(new java.awt.Color(51, 51, 51));
+        Panelgrille.setLayout(new java.awt.GridLayout(5, 5));
+        getContentPane().add(Panelgrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 480, 480));
 
-        pack();
+        Panelinfojeu.setBackground(new java.awt.Color(102, 102, 102));
+        Panelinfojeu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setText("Lancer");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        Panelinfojeu.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, -1, -1));
+
+        getContentPane().add(Panelinfojeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 360, 60));
+
+        setBounds(0, 0, 714, 607);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +100,8 @@ public class fenetredejeu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Panelgrille;
+    private javax.swing.JPanel Panelinfojeu;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }
