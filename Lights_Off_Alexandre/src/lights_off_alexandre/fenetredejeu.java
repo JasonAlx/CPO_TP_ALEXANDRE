@@ -4,24 +4,25 @@
  */
 package lights_off_alexandre;
 
+import java.util.Random;
+
 /**
  *
  * @author jason
  */
 public class fenetredejeu extends javax.swing.JFrame {
     Grille GrilleJeu=new Grille() ;
-    /**
+    /**permet de placer les 25 bouttons
      * Creates new form fenetredejeu
      */
     public fenetredejeu() {
         initComponents();
-        
-        for (i=0;i>4;i++){
-            for (j=0;j>4;j++){
-                Cellulegraph cellgraph =new Cellulegraph();
+        for (int i=4;i>=0;i--){
+            for (int j=0;j<5;j++){
+                Cellulegraph cellgraph =new Cellulegraph(GrilleJeu.cellules[i][j]);
                 Panelgrille.add(cellgraph);
-                
-            }
+            } 
+        }
     }
 
     /**
@@ -98,7 +99,18 @@ public class fenetredejeu extends javax.swing.JFrame {
             }
         });
     }
-
+    public void initialiserpartie(Cellule cellules[][]){
+        int Ligne = 4;
+        int Colonne = 4;
+        
+      Random generateurAleat = new Random();
+      int x, y;
+      for (int i=0;i<4;i++){
+          x = generateurAleat.nextInt(Ligne);
+          y = generateurAleat.nextInt(Colonne);
+          cellules[x][y].changeetat();
+      }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panelgrille;
     private javax.swing.JPanel Panelinfojeu;

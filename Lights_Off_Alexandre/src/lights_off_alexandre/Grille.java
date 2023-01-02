@@ -9,8 +9,8 @@ package lights_off_alexandre;
  * @author jason
  */
 public class Grille {
-    int Ligne=4;
-    int Colonne=4;
+    int Ligne=5;
+    int Colonne=5;
     Cellule [][] cellules = new Cellule [Ligne][Colonne];
 //création de la grille de 5*5
     
@@ -42,6 +42,11 @@ public class Grille {
                 cellules[i][j+1].changeetat();
         }
     }
+
+    /**
+     *determine si la partie est gagnée en verifiannt que 25 cases sont eteintes
+     * @return
+     */
     public boolean partiegagnee(){
         int compteur=0;
         for (int i=0;i<Ligne;i++){
