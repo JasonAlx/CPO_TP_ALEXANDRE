@@ -9,37 +9,50 @@ package lights_off_alexandre;
  * @author jason
  */
 public class Grille {
-    int Ligne=5;
-    int Colonne=5;
-    Cellule [][] cellules = new Cellule [Ligne][Colonne];
+
+    Cellule [][] cellules = new Cellule [5][5];
 //création de la grille de 5*5
     
     /**
      *on met les cellules dans la grille
      */
     public Grille(){
-        for (int i=0;i<Ligne;i++){
-            for (int j=0;j<Colonne;j++){
+        for (int i = 4; i >= 0; i--) {
+            for (int j = 0; j < 5; j++) {
                 cellules[i][j]=new Cellule();
             }
         }
     }
 
     /**
-     *permet de changer l'etat des cellules voisines en faisant attention à ne pas sortir de la grille 
+     *permet de changer l'etat des cellules voisines de celle jouée en faisant attention à ne pas sortir de la grille 
      * @param i
      * @param j
      */
-    public void changevoisin (int i,int j){
-        if (cellules[i][j].changeetat()==true){
-            if (i>0){
-                cellules[i-1][j].changeetat();
+    public void changevoisinne (int i,int j){
+            if (i>0){          
+                    cellules[i-1][j].changeetat();
             }if (i<4){
-                cellules[i+1][j].changeetat();
+                    cellules[i+1][j].changeetat();
             }if (j>0){
-                cellules[i][j-1].changeetat();
-            }if (j<4);
-                cellules[i][j+1].changeetat();
+                    cellules[i][j-1].changeetat();
+            }if (j<4){
+                    cellules[i][j+1].changeetat();
+
+            }
+            
+    }
+
+    /**
+     *retrouve quelle cellule à été changé et invoque la methode changevoisinne avec les bonnes coordonnées
+     */
+    public void changevoisin (){
+        for (int a = 4; a >= 0; a--) {
+            for (int b = 0; b < 5; b++) {
+                if (cellules[a][b].changeetat()==true){
+                    changevoisinne (a,b);
+                }
+            }
         }
     }
 
@@ -49,8 +62,8 @@ public class Grille {
      */
     public boolean partiegagnee(){
         int compteur=0;
-        for (int i=0;i<Ligne;i++){
-            for (int j=0;j<Colonne;j++){
+        for (int i=0;i<5;i++){
+            for (int j=0;j<5;j++){
                 if (cellules[i][j].celluleallume()==false){
                     compteur=compteur+1;
                     if (compteur==25){
@@ -68,8 +81,8 @@ public class Grille {
      *permet de rendre aleatoirement certaines cellules allumees
      */
     public void random(){
-        for (int i=0;i<4;i++){
-            for (int j=0;j<4;j++){
+        for (int i=0;i<5;i++){
+            for (int j=0;j<5;j++){
                 if (Math.random()>0.8){
                     cellules[i][j].setallumee();
                 }else{

@@ -11,17 +11,36 @@ import java.util.Random;
  * @author jason
  */
 public class fenetredejeu extends javax.swing.JFrame {
-    Grille GrilleJeu=new Grille() ;
-    /**permet de placer les 25 bouttons
-     * Creates new form fenetredejeu
+
+    Grille GrilleJeu = new Grille();
+    int coups;
+
+    /**
+     * permet de placer les 25 bouttons Creates new form fenetredejeu
      */
     public fenetredejeu() {
         initComponents();
-        for (int i=4;i>=0;i--){
-            for (int j=0;j<5;j++){
-                Cellulegraph cellgraph =new Cellulegraph(GrilleJeu.cellules[i][j]);
+        for (int i = 4; i >= 0; i--) {
+            for (int j = 0; j < 5; j++) {
+                Cellulegraph cellgraph = new Cellulegraph(GrilleJeu.cellules[i][j]);
+
+                cellgraph.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        Cellule c = cellgraph.celluleassociee;
+                        cellgraph.celluleassociee.changeetat();
+                        
+                        GrilleJeu.changevoisin();                    
+                        coups=coups+1;
+                        Panelgrille.repaint();
+                        if (GrilleJeu.partiegagnee()==true){
+                            System.out.println("Partie gagné en " +coups+" coups.");
+                            }
+
+                    }
+                });
+
                 Panelgrille.add(cellgraph);
-            } 
+            }
         }
     }
 
@@ -82,16 +101,24 @@ public class fenetredejeu extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(fenetredejeu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(fenetredejeu.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(fenetredejeu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(fenetredejeu.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(fenetredejeu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(fenetredejeu.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(fenetredejeu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(fenetredejeu.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -104,13 +131,14 @@ public class fenetredejeu extends javax.swing.JFrame {
     }
 
     /**
-     *initialise la partie en generant aleatoirement des cases allumees
+     * initialise la partie en generant aleatoirement des cases allumees
+     *
      * @param cellules
      */
-    public void initialiserpartie(){
+    public void initialiserpartie() {
         GrilleJeu.random();
-        
-      
+        coups=0;
+
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panelgrille;

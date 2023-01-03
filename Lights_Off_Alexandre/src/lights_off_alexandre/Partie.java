@@ -25,12 +25,8 @@ public class Partie {
         System.out.println(qst);
         int rep = sc.nextInt();
         return rep;
-    }
-    public void finpartie(Joueur coup){
-        if (GrilleJeu.partiegagnee()==true){
-            System.out.println("Partie gagné en " +coup+" coups.");
-        }
-        
+    
+    
     }
     /*public void reinitialiserpartie(){
         for (int i=0;i<4;i++){

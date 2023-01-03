@@ -10,6 +10,7 @@ import java.util.Random;
  */
 public class Cellule {
    boolean etreallume;
+
     //initalisation de la cellule en éteint
     
         
@@ -43,7 +44,8 @@ public class Cellule {
         }
     return true;  
     }
-    
+
+
     
     
 }
