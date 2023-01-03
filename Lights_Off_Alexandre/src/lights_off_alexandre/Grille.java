@@ -19,7 +19,7 @@ public class Grille {
     public Grille(){
         for (int i = 4; i >= 0; i--) {
             for (int j = 0; j < 5; j++) {
-                cellules[i][j]=new Cellule();
+                cellules[i][j]=new Cellule(false,false);
             }
         }
     }
@@ -49,8 +49,9 @@ public class Grille {
     public void changevoisin (){
         for (int a = 4; a >= 0; a--) {
             for (int b = 0; b < 5; b++) {
-                if (cellules[a][b].changeetat()==true){
+                if (cellules[a][b].etrecellulejoue()==true){
                     changevoisinne (a,b);
+                    cellules[a][b].setnoncellulejoue();
                 }
             }
         }

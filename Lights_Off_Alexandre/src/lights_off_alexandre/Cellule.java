@@ -10,10 +10,14 @@ import java.util.Random;
  */
 public class Cellule {
    boolean etreallume;
+   boolean cellulejoue=true;
 
     //initalisation de la cellule en éteint
     
-        
+    public Cellule(boolean Etreallume,boolean Cellulejoue){
+        etreallume=Etreallume;
+        cellulejoue=Cellulejoue;
+    }
 
     /**
      *permet de conaitre l'etat d'une cellule
@@ -45,7 +49,17 @@ public class Cellule {
     return true;  
     }
 
-
+    public boolean etrecellulejoue (){
+        if (cellulejoue==true){
+            return true;
+        }return false;
+    }
+   public void setcellulejoue(){
+       cellulejoue=true;
+   }
+   public void setnoncellulejoue(){
+       cellulejoue=false;
+   }
     
     
 }

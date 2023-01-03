@@ -27,6 +27,7 @@ public class fenetredejeu extends javax.swing.JFrame {
                 cellgraph.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
                         Cellule c = cellgraph.celluleassociee;
+                        cellgraph.celluleassociee.setcellulejoue();
                         cellgraph.celluleassociee.changeetat();
                         
                         GrilleJeu.changevoisin();                    
