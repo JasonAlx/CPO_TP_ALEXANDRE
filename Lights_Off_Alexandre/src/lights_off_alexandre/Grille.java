@@ -14,7 +14,7 @@ public class Grille {
 //création de la grille de 5*5
     
     /**
-     *on met les cellules dans la grille
+     *on met 25 cellules non jouées et eteintes dans la grille
      */
     public Grille(){
         for (int i = 4; i >= 0; i--) {

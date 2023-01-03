@@ -14,5 +14,5 @@ public class Joueur {
         if (cellules[i][j].changeetat()==true){
             coup=coup+1;
     }*/
-}
+}//classe inutile pour l'instant
 

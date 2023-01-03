@@ -9,15 +9,15 @@ import java.util.Random;
  * @author jason
  */
 public class Cellule {
-   boolean etreallume;
-   boolean cellulejoue=true;
+   boolean etreallume;//variable de la cellule si elle est eteinte ou allumé
+   boolean cellulejoue;//variable de la cellule si elle vient juste d'etre jouee ou non
 
-    //initalisation de la cellule en éteint
+
     
     public Cellule(boolean Etreallume,boolean Cellulejoue){
         etreallume=Etreallume;
         cellulejoue=Cellulejoue;
-    }
+    }//on met ces variables en attribut
 
     /**
      *permet de conaitre l'etat d'une cellule
@@ -30,9 +30,17 @@ public class Cellule {
             return false;
         }
     }
+
+    /**
+     *allume la cellule
+     */
     public void setallumee(){
         etreallume=true;
     }
+
+    /**
+     *eteint la cellule
+     */
     public void seteteint(){
         etreallume=false;
     }
@@ -49,15 +57,27 @@ public class Cellule {
     return true;  
     }
 
+    /**
+     *regarde si la cellule vient d'etre jouée
+     * @return
+     */
     public boolean etrecellulejoue (){
         if (cellulejoue==true){
             return true;
         }return false;
     }
-   public void setcellulejoue(){
+
+    /**fait que la cellule vient d'etre joué
+     *
+     */
+    public void setcellulejoue(){
        cellulejoue=true;
    }
-   public void setnoncellulejoue(){
+
+    /**
+     *fait que la cellule ne vient pas d'etre jouée
+     */
+    public void setnoncellulejoue(){
        cellulejoue=false;
    }
     

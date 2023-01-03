@@ -17,6 +17,11 @@ public class Cellulegraph extends JButton {
     public Cellulegraph (Cellule cellule){
         celluleassociee=cellule;   
     }
+
+    /**
+     *associe les image des cases en fonction de leur etat
+     * @param G
+     */
     @Override
     public void paintComponent (Graphics G){
         super.paintComponent(G);

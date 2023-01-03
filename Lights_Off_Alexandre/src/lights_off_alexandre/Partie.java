@@ -35,4 +35,4 @@ public class Partie {
             }
         }
     }*/
-}
+}// classe non utilisé car le jeu est en mode graphique
