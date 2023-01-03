@@ -63,6 +63,21 @@ public class Grille {
         }
         return false;
     }
+
+    /**
+     *permet de rendre aleatoirement certaines cellules allumees
+     */
+    public void random(){
+        for (int i=0;i<4;i++){
+            for (int j=0;j<4;j++){
+                if (Math.random()>0.8){
+                    cellules[i][j].setallumee();
+                }else{
+                    cellules[i][j].seteteint();
+                }
+            }
+        }
+    }
 }    
 
 

@@ -39,13 +39,14 @@ public class fenetredejeu extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(51, 51, 51));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Panelgrille.setBackground(new java.awt.Color(51, 51, 51));
         Panelgrille.setLayout(new java.awt.GridLayout(5, 5));
-        getContentPane().add(Panelgrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 480, 480));
+        getContentPane().add(Panelgrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 480, 480));
 
-        Panelinfojeu.setBackground(new java.awt.Color(102, 102, 102));
+        Panelinfojeu.setBackground(new java.awt.Color(204, 204, 204));
         Panelinfojeu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setText("Lancer");
@@ -54,15 +55,17 @@ public class fenetredejeu extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        Panelinfojeu.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, -1, -1));
+        Panelinfojeu.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
 
-        getContentPane().add(Panelinfojeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 360, 60));
+        getContentPane().add(Panelinfojeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 360, 60));
 
         setBounds(0, 0, 714, 607);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        initialiserpartie();
+        Panelgrille.repaint();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -99,17 +102,15 @@ public class fenetredejeu extends javax.swing.JFrame {
             }
         });
     }
-    public void initialiserpartie(Cellule cellules[][]){
-        int Ligne = 4;
-        int Colonne = 4;
+
+    /**
+     *initialise la partie en generant aleatoirement des cases allumees
+     * @param cellules
+     */
+    public void initialiserpartie(){
+        GrilleJeu.random();
         
-      Random generateurAleat = new Random();
-      int x, y;
-      for (int i=0;i<4;i++){
-          x = generateurAleat.nextInt(Ligne);
-          y = generateurAleat.nextInt(Colonne);
-          cellules[x][y].changeetat();
-      }
+      
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panelgrille;

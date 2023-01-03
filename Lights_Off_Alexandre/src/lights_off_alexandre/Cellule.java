@@ -3,15 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package lights_off_alexandre;
-
+import java.util.Random;
 /**
  *
  * @author jason
  */
 public class Cellule {
-   boolean etreallume=false;
+   boolean etreallume;
     //initalisation de la cellule en éteint
     
+        
+
     /**
      *permet de conaitre l'etat d'une cellule
      * @return
@@ -22,6 +24,12 @@ public class Cellule {
         }else{
             return false;
         }
+    }
+    public void setallumee(){
+        etreallume=true;
+    }
+    public void seteteint(){
+        etreallume=false;
     }
     
     /**

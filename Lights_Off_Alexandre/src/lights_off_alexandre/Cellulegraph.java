@@ -12,16 +12,20 @@ import javax.swing.JButton;
  */
 public class Cellulegraph extends JButton {
     Cellule celluleassociee;
-    //ImageIcon img_vide=new javax.swing.ImageIcon(getClass().getResource("/images/celluleVide.png"));
-    
+    ImageIcon imgeteint=new javax.swing.ImageIcon(getClass().getResource("/image/celluleVide.png"));
+    ImageIcon imgallume=new javax.swing.ImageIcon(getClass().getResource("/image/jetonJaune.png"));
     public Cellulegraph (Cellule cellule){
         celluleassociee=cellule;   
     }
-    /*@Override
+    @Override
     public void paintComponent (Graphics G){
         super.paintComponent(G);
-        setIcon(img_vide);
+        if (celluleassociee.celluleallume()==false){
+            setIcon(imgeteint);
+        }else {
+            setIcon(imgallume);
+        }
        
-    }*/
+    }
     
 }

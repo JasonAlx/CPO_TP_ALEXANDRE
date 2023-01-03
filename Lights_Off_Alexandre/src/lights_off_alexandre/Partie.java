@@ -10,23 +10,16 @@ import java.util.Scanner;
  * @author jason
  */
 public class Partie {
-    Grille GrilleJeu = new Grille();
     
-    public void initialiserpartie(Cellule cellules[][]){
-        int Ligne = 4;
-        int Colonne = 4;
+    Grille GrilleJeu; 
+    /*public void initialiserpartie(){
+        GrilleJeu= new Grille();
+        GrilleJeu.random();
         
-      Random generateurAleat = new Random();
-      int x, y;
-      for (int i=0;i<4;i++){
-          x = generateurAleat.nextInt(Ligne);
-          y = generateurAleat.nextInt(Colonne);
-          cellules[x][y].changeetat();
-      }
-    }
-    /*public void debuterpartie(Partie partie){
-        partie.initialiserpartie();
+        
     }*/
+
+    
     public int clickcoord (String qst){
         Scanner sc = new Scanner(System.in);
         System.out.println(qst);
@@ -37,5 +30,13 @@ public class Partie {
         if (GrilleJeu.partiegagnee()==true){
             System.out.println("Partie gagné en " +coup+" coups.");
         }
+        
     }
+    /*public void reinitialiserpartie(){
+        for (int i=0;i<4;i++){
+            for (int j=0;j<4;j++){
+                
+            }
+        }
+    }*/
 }
