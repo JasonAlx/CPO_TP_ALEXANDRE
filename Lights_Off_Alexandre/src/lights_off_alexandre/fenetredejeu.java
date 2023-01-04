@@ -11,15 +11,17 @@ import java.util.Random;
  * @author jason
  */
 public class fenetredejeu extends javax.swing.JFrame {
-
+        
     Grille GrilleJeu = new Grille();
-    int coups;
 
     /**
      * permet de placer les 25 bouttons Creates new form fenetredejeu
      */
-    public fenetredejeu() {
+    public fenetredejeu() { 
         initComponents();
+        lblrecord.setVisible(false);
+        lblcoups.setVisible(false);
+        lblgagne.setVisible(false);
         for (int i = 4; i >= 0; i--) {
             for (int j = 0; j < 5; j++) {
                 Cellulegraph cellgraph = new Cellulegraph(GrilleJeu.cellules[i][j]);
@@ -29,14 +31,15 @@ public class fenetredejeu extends javax.swing.JFrame {
                         Cellule c = cellgraph.celluleassociee;
                         cellgraph.celluleassociee.setcellulejoue();
                         cellgraph.celluleassociee.changeetat();
-                        
-                        GrilleJeu.changevoisin();                    
-                        coups=coups+1;
+                        GrilleJeu.changevoisin();
+                        coups = coups + 1;
+                        lblcoups.setText(String.valueOf(coups));
                         Panelgrille.repaint();
-                        if (GrilleJeu.partiegagnee()==true){
-                            System.out.println("Partie gagné en " +coups+" coups.");
-                            }
+                        if(GrilleJeu.partiegagnee()==true){
+                                    lblgagne.setVisible(true);
+                                    record();
 
+                        }        
                     }
                 });
 
@@ -57,6 +60,11 @@ public class fenetredejeu extends javax.swing.JFrame {
         Panelgrille = new javax.swing.JPanel();
         Panelinfojeu = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        lblcoups = new javax.swing.JLabel();
+        lblrecord = new javax.swing.JLabel();
+        lblgagne = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 51));
@@ -75,7 +83,22 @@ public class fenetredejeu extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        Panelinfojeu.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
+        Panelinfojeu.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
+
+        jLabel1.setText("Record :");
+        Panelinfojeu.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 50, 20));
+
+        jLabel2.setText("Nombre de coups :");
+        Panelinfojeu.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 110, 20));
+
+        lblcoups.setText("coups");
+        Panelinfojeu.add(lblcoups, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+
+        lblrecord.setText("record");
+        Panelinfojeu.add(lblrecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, -1, -1));
+
+        lblgagne.setText("Bravo, partie gagné");
+        Panelinfojeu.add(lblgagne, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 110, -1));
 
         getContentPane().add(Panelinfojeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 360, 60));
 
@@ -86,6 +109,12 @@ public class fenetredejeu extends javax.swing.JFrame {
         // TODO add your handling code here:
         initialiserpartie();
         Panelgrille.repaint();
+        jButton1.setText("Recommencer");
+        lblcoups.setText(String.valueOf(coups));
+        lblcoups.setVisible(true);
+        
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -130,6 +159,18 @@ public class fenetredejeu extends javax.swing.JFrame {
             }
         });
     }
+    int coups=0;//on initialise le nombre de coups à 0
+    int record = 0;//on initialise le nombre de record à 0 il sera changer plus tard
+
+    public void record() {
+        if (coups < record) {
+            record = coups;
+            lblrecord.setVisible(true);
+        }if (record==0){
+                record = coups;
+                lblrecord.setVisible(true);
+        }lblrecord.setText(String.valueOf(record));
+    }
 
     /**
      * initialise la partie en generant aleatoirement des cases allumees
@@ -138,12 +179,17 @@ public class fenetredejeu extends javax.swing.JFrame {
      */
     public void initialiserpartie() {
         GrilleJeu.random();
-        coups=0;
+        coups = 0;
 
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panelgrille;
     private javax.swing.JPanel Panelinfojeu;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblcoups;
+    private javax.swing.JLabel lblgagne;
+    private javax.swing.JLabel lblrecord;
     // End of variables declaration//GEN-END:variables
 }

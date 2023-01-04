@@ -79,12 +79,12 @@ public class Grille {
     }
 
     /**
-     *permet de rendre aleatoirement certaines cellules allumees
+     *permet de rendre aleatoirement certaines cellules allumees on ne veut pas en avoir trop
      */
     public void random(){
         for (int i=0;i<5;i++){
             for (int j=0;j<5;j++){
-                if (Math.random()>0.8){
+                if (Math.random()>0.9){
                     cellules[i][j].setallumee();
                 }else{
                     cellules[i][j].seteteint();
